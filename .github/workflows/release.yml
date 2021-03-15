@@ -33,8 +33,7 @@ jobs:
         run: npx semantic-release
   PR:
     needs: Release
-      - name: Create PR
-        id: cpr
+      - id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.TOKEN }}
