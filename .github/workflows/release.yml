@@ -25,6 +25,7 @@ jobs:
           git checkout -b release
           git push origin release
   Release:
+    runs-on: ubuntu-18.04
     needs: checkout
     steps: 
       - name: Run semantic release
@@ -32,6 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: npx semantic-release
   PR:
+    runs-on: ubuntu-18.04
     needs: Release
     steps:
       - name: Create PR
