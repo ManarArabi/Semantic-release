@@ -34,6 +34,10 @@ jobs:
     runs-on: ubuntu-18.04
     needs: Release
     steps:
+      - name: Checkout release
+        uses: actions/checkout@v2
+        with:
+          ref: release
       - name: Create PR
         id: cpr
         uses: peter-evans/create-pull-request@v3
