@@ -18,18 +18,25 @@ jobs:
       - name: install dependencies
         run: |
           npm i
-      - name: run semantic release
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: |
           git checkout master
           git checkout -b release
           git push origin release
           git status
-          npx semantic-release --debug
+  X:
+    needs: Release
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          ref: release
+      - name: run semantic release
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        run: npx semantic-release --debug
   Create-PR:
     runs-on: ubuntu-18.04
-    needs: Release
+    needs: X
     steps:
       - name: Checkout release
         uses: actions/checkout@v2
