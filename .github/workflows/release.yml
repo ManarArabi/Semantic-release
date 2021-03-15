@@ -28,8 +28,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          npx semantic-release
           git push origin release
+          git checkout release
+          npx semantic-release
   Create-PR:
     runs-on: ubuntu-18.04
     needs: Release
