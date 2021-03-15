@@ -28,7 +28,7 @@ jobs:
           node-version: 12
       - name: Run semantic release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
           git push origin release
           git checkout release
@@ -37,7 +37,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN}}
+          token: ${{ secrets.TOKEN}}
           branch: release
           delete-branch: true
           title: 'Automated release'
