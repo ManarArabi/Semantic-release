@@ -25,7 +25,6 @@ jobs:
           git checkout master
           git checkout -b release
           git push origin release
-          git checkout release
           npx semantic-release
   Create-PR:
     runs-on: ubuntu-18.04
