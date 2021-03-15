@@ -30,6 +30,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
+          npm i
           git push origin release
           git checkout release
           npx semantic-release
