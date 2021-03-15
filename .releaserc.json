@@ -1,5 +1,5 @@
 {
-    "branches": "release",
+    "branches": ["release"],
     "repositoryUrl": "https://github.com/ManarArabi/Semantic-release.git",
     "debug": "true",
     "plugins": [
