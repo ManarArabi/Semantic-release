@@ -33,7 +33,10 @@ jobs:
       - name: run semantic release
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: npx semantic-release --debug
+        run: |
+          git checkout release
+          git status
+          npx semantic-release --debug
   Create-PR:
     runs-on: ubuntu-18.04
     needs: X
