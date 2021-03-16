@@ -40,6 +40,7 @@ jobs:
         run: |
           git checkout release
           git status
+          git config --global init.defaultBranch release
           npx semantic-release --debug
   Create-PR:
     runs-on: ubuntu-18.04
