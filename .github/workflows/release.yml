@@ -5,22 +5,22 @@ on:
       - master
 
 jobs:
-  Create-release-branch:
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Checkout master
-        uses: actions/checkout@v2
-        with:
-          ref: master
-      - name: Create release branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: |
-          git checkout master
-          git checkout -b release
-          git push origin release
+  # Create-release-branch:
+  #   runs-on: ubuntu-18.04
+  #   steps:
+  #     - name: Checkout master
+  #       uses: actions/checkout@v2
+  #       with:
+  #         ref: master
+  #     - name: Create release branch
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.TOKEN }}
+  #       run: |
+  #         git checkout master
+  #         git checkout -b release
+  #         git push origin release
   Release:
-    needs: Create-release-branch
+    # needs: Create-release-branch
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout release
