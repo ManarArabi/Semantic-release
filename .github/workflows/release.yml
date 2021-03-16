@@ -25,6 +25,7 @@ jobs:
     steps:
       - name: Checkout release
         uses: actions/checkout@v2
+        run: git config --global init.defaultBranch release
         with:
           ref: release
       - name: Setup Node.js
