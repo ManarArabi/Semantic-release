@@ -57,7 +57,7 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           branch: release
-          delete-branch: true
+          # delete-branch: true
           title: 'Automated release'
           labels: release
           base: master
